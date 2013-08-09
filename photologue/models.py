@@ -510,8 +510,8 @@ class ImageModel(models.Model):
 
 
 class Photo(ImageModel):
-    title = models.CharField(_('title'), max_length=50, unique=True)
-    title_slug = models.SlugField(_('slug'), unique=True,
+    title = models.CharField(_('title'), max_length=250)
+    title_slug = models.SlugField(_('slug'), max_length=250, unique=True,
                                   help_text=_('A "slug" is a unique URL-friendly title for an object.'))
     caption = models.TextField(_('caption'), blank=True)
     date_added = models.DateTimeField(_('date added'), default=now)
