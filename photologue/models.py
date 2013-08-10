@@ -415,6 +415,8 @@ class ImageModel(models.Model):
             os.makedirs(self.cache_path())
         try:
             im = Image.open(self.image.path)
+            if im.mode != "RGB":
+                im = im.convert("RGB")
         except IOError:
             return
         # Save the original format
